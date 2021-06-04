@@ -24,6 +24,9 @@ public class RaymarchBlackHole : SceneViewFilter
     }
     private Camera _CurrentCamera;
 
+    public Transform blackHole1;
+    public Transform blackHole2;
+
     [ImageEffectOpaque]
     void OnRenderImage(RenderTexture source, RenderTexture destination)
     {
@@ -38,8 +41,12 @@ public class RaymarchBlackHole : SceneViewFilter
         blackHoleRayMarching.SetMatrix("_CameraInvViewMatrix", CurrentCamera.cameraToWorldMatrix);
         blackHoleRayMarching.SetVector("_CameraWS", CurrentCamera.transform.position);
 
-        blackHoleRayMarching.SetVector("_BlackHolePosition", CurrentCamera.transform.position);
-        blackHoleRayMarching.SetVector("_BlackHolePosition", CurrentCamera.transform.position + CurrentCamera.transform.right);
+        blackHoleRayMarching.SetVector("_BlackHolePosition", blackHole1.position); // Vector3.zero);
+        blackHoleRayMarching.SetVector("_BlackHolePosition", blackHole2.position); // Vector3.zero + CurrentCamera.transform.right*5f);
+
+        // ***WORMHOLE
+        //blackHoleRayMarching.SetVector("_BlackHolePosition", CurrentCamera.transform.position);
+        //blackHoleRayMarching.SetVector("_BlackHolePosition", CurrentCamera.transform.position + CurrentCamera.transform.right);
 
         CustomGraphicsBlit(source, destination, blackHoleRayMarching, 0); // Replace Graphics.Blit with CustomGraphicsBlit
     }

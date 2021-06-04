@@ -114,8 +114,8 @@ Shader "DotCrossDot/BlackHoleRaymarching"
 					// Get two vectors. One pointing in previous direction and one pointing to the singularity. 
 					float3 unaffectedDir = normalize(previousRayDir) * stepSize;
 
-					blackHolePosition.xyz = _BlackHolePosition.xyz;
-					blackHolePosition2.xyz = _BlackHolePosition2.xyz;
+					blackHolePosition = _BlackHolePosition.rgb;
+					blackHolePosition2 = _BlackHolePosition2.rgb;
 
 					float3 maxAffectedDir = normalize(blackHolePosition - previousPos) * stepSize;
 					float3 maxAffectedDir2 = normalize(blackHolePosition - previousPos) * stepSize;
