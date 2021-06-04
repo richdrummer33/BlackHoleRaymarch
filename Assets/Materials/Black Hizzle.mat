@@ -65,7 +65,7 @@ Material:
         m_Offset: {x: 0, y: 0}
     m_Ints: []
     m_Floats:
-    - _AccretionDiskThickness: 1
+    - _AccretionDiskThickness: 0.23
     - _BumpScale: 1
     - _Cutoff: 0.5
     - _DetailNormalMapScale: 1
@@ -85,8 +85,10 @@ Material:
     - _UVSec: 0
     - _ZWrite: 1
     m_Colors:
-    - _AccretionDiskColor: {r: 0.63070387, g: 0.7169812, b: 0.07710925, a: 1}
+    - _AccretionDiskColor: {r: 0.047169805, g: 0.04680425, b: 0.042452823, a: 0.96862745}
     - _BlackHoleColor: {r: 0, g: 0, b: 0, a: 1}
+    - _BlackHolePosition: {r: 1, g: 1, b: -10, a: 0}
+    - _BlackHolePosition2: {r: 1, g: 1, b: 1, a: 1}
     - _Color: {r: 1, g: 1, b: 1, a: 1}
     - _EmissionColor: {r: 0, g: 0, b: 0, a: 1}
   m_BuildTextureStacks: []

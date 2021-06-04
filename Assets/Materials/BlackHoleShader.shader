@@ -14,6 +14,9 @@ Shader "DotCrossDot/BlackHoleRaymarching"
 		_AccretionDiskThickness("Accretion disk thickness", Float) = 1
 		_SkyCube("Skycube", Cube) = "defaulttexture" {}
 		_Noise("Accretion disk noise", 2D) = "" {}
+
+		_BlackHolePosition("Black hole 1 position", Color) = (0,0,0,0)
+		_BlackHolePosition2("Black hole 2 position", Color) = (5,0,0,0)
 	}
 		SubShader
 	{
@@ -41,6 +44,9 @@ Shader "DotCrossDot/BlackHoleRaymarching"
 			half4 _BlackHoleColor;
 			float _AccretionDiskThickness;
 			samplerCUBE _SkyCube;
+
+			float4 _BlackHolePosition;
+			float4 _BlackHolePosition2;
 
 			struct appdata
 			{
@@ -107,6 +113,9 @@ Shader "DotCrossDot/BlackHoleRaymarching"
 				for (int i = 0; i < maxstep; ++i) {
 					// Get two vectors. One pointing in previous direction and one pointing to the singularity. 
 					float3 unaffectedDir = normalize(previousRayDir) * stepSize;
+
+					blackHolePosition.xyz = _BlackHolePosition.xyz;
+					blackHolePosition2.xyz = _BlackHolePosition2.xyz;
 
 					float3 maxAffectedDir = normalize(blackHolePosition - previousPos) * stepSize;
 					float3 maxAffectedDir2 = normalize(blackHolePosition - previousPos) * stepSize;

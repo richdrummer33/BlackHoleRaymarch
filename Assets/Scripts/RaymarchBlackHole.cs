@@ -38,6 +38,9 @@ public class RaymarchBlackHole : SceneViewFilter
         blackHoleRayMarching.SetMatrix("_CameraInvViewMatrix", CurrentCamera.cameraToWorldMatrix);
         blackHoleRayMarching.SetVector("_CameraWS", CurrentCamera.transform.position);
 
+        blackHoleRayMarching.SetVector("_BlackHolePosition", CurrentCamera.transform.position);
+        blackHoleRayMarching.SetVector("_BlackHolePosition", CurrentCamera.transform.position + CurrentCamera.transform.right);
+
         CustomGraphicsBlit(source, destination, blackHoleRayMarching, 0); // Replace Graphics.Blit with CustomGraphicsBlit
     }
 
